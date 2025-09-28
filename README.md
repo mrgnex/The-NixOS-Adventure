@@ -1,5 +1,6 @@
 # The-NixOS-Adventure
 A repository documenting my journey with NixOS. Hopefully this will grow into a beginner friendly documentation for using NixOS.
+Every code block includes code that needs to be run in the terminal. Konsole is the stock terminal when installing NixOS. Open this terminal and run the commands.
 
 # Contents
 [What is NixOS?](https://github.com/mrgnex/The-NixOS-Adventure/edit/main/README.md#what-is-nixos)  
@@ -28,3 +29,25 @@ For simplicity here is a step-by-step instruction on how to install NixOS on you
 11. Let the installer finish (it might be stuck at 46%) and reboot!
 
 ## After the first boot
+### Choose the update channel
+There are a [couple update channels](https://discourse.nixos.org/t/differences-between-nix-channels/13998) to choose from.
+If you want the highest stability just use the stable releases, this is the stock setting. You will have to manually update to a newer version when it releases.
+This is typically composed of the last two numbers of the current year and the month the channel was released, e.g.: nixos-23.11. You can check the [status of the channels](https://status.nixos.org/).
+The stable branch is typically updated in may (xx.05) and november (xx.11).
+To upgrade to a newer release (xx.xx being the old release numbers and yy.yy the new numbers):
+1. ```sudo nix-channel --add https://nixos.org/channels/nixos-yy.yy nixos```
+2. ```sudo nix-channel --remove nixos-xx.xx```
+3. ```sudo nix-channel --update && sudo nixos-rebuild switch```
+
+The unstable channel is bleeding edge and turns it in a sort of rolling release distribution. Do some research if you want to use this channel!
+To select the unstable channel:
+1. ```sudo nix-channel --add https://nixos.org/channels/nixos-unstable nixos```
+2. ```sudo nix-channel --update && sudo nixos-rebuild switch```
+
+### Enable flakes
+Enabling flakes is generally good practice. This can be done quite easily.
+1. ```sudo nano /etc/nixos/configuration.nix```
+2. Add this line anywhere in the configuration file: ```nix.settings.experimental-features = [ "nix command" "flakes"];```
+3. ```cd /etc/nixos```
+4. ```nix flake init```
+5. ```nix flake update```
