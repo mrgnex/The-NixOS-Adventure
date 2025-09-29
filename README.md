@@ -52,9 +52,9 @@ To select the unstable channel:
 4. Press Control + S and then Control + X.
 5. Run ```sudo nixos-rebuild switch```
 6. Go to the /etc/nixos folder by running ```cd /etc/nixos```
-7. ```sudo git init```
+7. ```git init```
 8. ```git config --global --add safe.directory /etc/nixos```
-9. ```sudo git add configuration.nix```
+9. ```git add configuration.nix```
 10. ```git config user.name "Your Name"```
 11. ```git config user.email "your.email@example.com"```
 12. ```git commit -m "Initial commit of NixOS configuration"```
@@ -65,13 +65,13 @@ To select the unstable channel:
 17. Go to the settings in your GitHub account and find the "SSH and GPG keys" section under the "Access" header.
 18. Click on "New SSH key" and give the key a name.
 19. Paste your clipboard in the "Key" field, press the button "Add SSH key" and confirm with your password when prompted.
-20. ```sudo git remote set-url origin git@github.com:yourusername/nixos-config.git``` where your "username" is your GitHub username and the "nixos-config" is replaced with the name of your repository.
-21. ```sudo git push -u origin master```
+20. ```git remote set-url origin git@github.com:yourusername/nixos-config.git``` where your "username" is your GitHub username and the "nixos-config" is replaced with the name of your repository.
+21. ```git push -u origin master```
 
 Now every time you want to make changes follow these steps:
 1. ```sudo nano /etc/nixos/configuration.nix``` and make changes accordingly (package names and ways to add them can be found in the [NixOS search](https://search.nixos.org/packages?channel=25.05&)
 2. Save and close the ```configuration.nix``` file.
 3. Rebuild the system by running ```sudo nixos-rebuild switch``` or ```sudo nixos-rebuild switch --upgrade``` (the latter updates the packages).
-4. ```sudo git add configuration.nix```
+4. ```git add configuration.nix```
 5. If desired the changes can be described: ```git commit -m "Describe your changes here"```
-6. ```sudo git push```
+6. ```git push```
