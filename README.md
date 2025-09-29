@@ -69,7 +69,7 @@ To select the unstable channel:
 21. ```sudo git push -u origin master```
 
 Now every time you want to make changes follow these steps:
-1. ```sudo nano /etc/nixos/configuration.nix``` and make changes accordingly (package names and ways to add them can be found in the (NixOS search)[https://search.nixos.org/packages?channel=25.05&]
+1. ```sudo nano /etc/nixos/configuration.nix``` and make changes accordingly (package names and ways to add them can be found in the [NixOS search](https://search.nixos.org/packages?channel=25.05&)
 2. Save and close the ```configuration.nix``` file.
 3. Rebuild the system by running ```sudo nixos-rebuild switch``` or ```sudo nixos-rebuild switch --upgrade``` (the latter updates the packages).
 4. ```sudo git add configuration.nix```
