@@ -76,3 +76,12 @@ Now every time you want to make changes follow these steps:
 5. ```git add configuration.nix```
 6. If desired the changes can be described: ```git commit -m "Describe your changes here"```
 7. ```git push```
+
+###Edit configuration.nix using a text editor
+To allow for easy editing of the configuration file with a text editor like Kate (included in KDE) these steps should be followed:
+1. ```mkdir ~/etc```
+2. ```sudo mv /etc/nixos ~/etc/```
+3. ```sudo chown -R $(id -un):users ~/etc/nixos```
+4. ```sudo ln -s ~/etc/nixos /etc/```
+
+Now the file can be edited using ```kate /etc/nixos``` and then using ```nixos-rebuild switch```. Use the git managing mentioned in the previous step if needed.
